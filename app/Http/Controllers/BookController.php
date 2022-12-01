@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Favourite;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -110,5 +111,6 @@ class BookController extends Controller
         $request->session()->put('find_book',$request->name);
         return redirect()->route('books.index');
     }
+
 
 }

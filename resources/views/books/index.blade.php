@@ -48,9 +48,14 @@
                                     <td>{{$book->isbn}}</td>
                                     <td>{{$book->pages}}</td>
                                     <td>{{$book->category->name}}</td>
-                                    @can('admin')
+                                    @can('user')
+                                        <td><button class="btn btn-outline-warning">Like</button></td>
+                                        <td><button class="btn btn-outline-success">Reserve</button></td>
+                                    @endcan
+
+                                @can('admin')
                                     <td>
-                                        <a href="{{route('books.edit',$book->id)}}" class="btn btn btn-success">Edit</a>
+                                        <a href="{{route('books.edit',$book->id)}}" class="btn btn-success">Edit</a>
                                     </td>
                                     <td>
                                         <form method="post" action="{{route('books.destroy',$book->id)}}">
